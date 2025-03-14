@@ -65,7 +65,6 @@ export default function Player({ src }: PropsType) {
   useEffect(() => {
     const video = videoRef.current;
     if (!video) return;
-
     let hls: Hls | null = null;
 
     if (Hls.isSupported()) {
