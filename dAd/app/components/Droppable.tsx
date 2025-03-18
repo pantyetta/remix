@@ -11,7 +11,10 @@ export function Droppable({ children, id }: DroppableProps) {
   });
 
   return (
-    <div ref={setNodeRef} className={isOver ? "border border-red-400" : ""}>
+    <div
+      ref={setNodeRef}
+      className={isOver ? "outline outline-red-400" : undefined}
+    >
       {children}
     </div>
   );

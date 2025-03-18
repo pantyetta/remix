@@ -1,15 +1,15 @@
 import { UniqueIdentifier } from "@dnd-kit/core";
 import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
+import { Droppable } from "./Droppable";
+import { SortableProps } from "./Sortable";
 
-export type SortableProps = {
-  children: React.ReactNode;
-  id: UniqueIdentifier;
-  className?: string;
-  onClick?: () => void;
-};
-
-export function Sortable({ children, id, className, onClick }: SortableProps) {
+export function SortableDrop({
+  children,
+  id,
+  className,
+  onClick,
+}: SortableProps) {
   const {
     attributes,
     listeners,
@@ -34,7 +34,7 @@ export function Sortable({ children, id, className, onClick }: SortableProps) {
       {...listeners}
       onClick={onClick}
     >
-      {children}
+      <Droppable id={id + "-menu"}>{children}</Droppable>
     </div>
   );
 }
